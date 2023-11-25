@@ -1,6 +1,6 @@
 {
   "name": "lib-auction",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Use for project auction",
   "main": "index.js",
   "scripts": {
