@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import { RLPDecode } from "../rlp/RLPDecode.sol";
@@ -203,7 +204,8 @@ library MPT {
         uint256 start,
         uint256 length,
         bool removeFirstNibble
-    ) internal pure returns (bytes memory) {
+    ) internal pure returns (bytes memory x) {
+        x = "";
         uint256 slots = length / 32;
         uint256 rest = 256 - (length % 32) * 8;
         uint256 pos = 32;
