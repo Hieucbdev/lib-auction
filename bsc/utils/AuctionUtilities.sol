@@ -3,7 +3,7 @@ pragma solidity 0.8.15;
 
 contract AuctionUtilities {
   function getAverageBlockTime() public pure returns (uint256) {
-    return 1000000;
+    return 3;
   }
 }
 
