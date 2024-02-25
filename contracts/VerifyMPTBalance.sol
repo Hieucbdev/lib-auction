@@ -2,8 +2,8 @@
 pragma solidity 0.8.15;
 
 import { EthereumDecoder } from "./EthereumDecoder.sol";
-import { MPT } from "../../mpt/MPT.sol";
-import { RLPEncode } from "../../rlp/RLPEncode.sol";
+import { MPT } from "./MPT.sol";
+import { RLPEncode } from "./RLPEncode.sol";
 
 library VerifyMPTBalance {
     using MPT for MPT.MerkleProof;

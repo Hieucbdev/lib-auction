@@ -19,8 +19,11 @@ library EthereumDecoder {
         bytes extraData;
         bytes32 mixHash;
         uint64 nonce;
-        uint256 totalDifficulty;
         uint256 baseFeePerGas;
-        bytes32[5] backupStore; 
+        bytes32 withdrawalsRoot;
+        uint256 blobGasUsed;
+        uint256 excessBlobGas;
+        bytes32 parentBeaconBlockRoot;
+        bytes32[5] backupForFuture; 
     }
 }

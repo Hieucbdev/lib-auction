@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import { RLPDecode } from "../rlp/RLPDecode.sol";
+import { RLPDecode } from "./RLPDecode.sol";
 
 /*
     Documentation:
