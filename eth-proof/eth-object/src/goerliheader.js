@@ -1,7 +1,7 @@
 const { decode, toBuffer, KECCAK256_RLP_ARRAY, KECCAK256_NULL } = require('eth-util-lite')
 const EthObject = require('./ethObject')
 
-class Header extends EthObject{
+class GoerliHeader extends EthObject{
 
   static get fields(){ return [
     'parentHash',
@@ -20,7 +20,7 @@ class Header extends EthObject{
     'mixHash',
     'nonce',
     'baseFeePerGas',
-    "withdrawalsRoot"
+    'withdrawalsRoot'
   ]}
 
   constructor(raw = this.NULL){
@@ -58,4 +58,4 @@ class Header extends EthObject{
   }
 }
 
-module.exports = Header
+module.exports = GoerliHeader;

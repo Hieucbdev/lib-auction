@@ -1,12 +1,9 @@
 const Rpc  = require('isomorphic-rpc')
-const { Proof, Header, EthObject } = require("./eth-object");
-
-class Header2 extends EthObject{
-  // Update base on chain !!!!
-}
+const { Proof, Header, BSCMainnetHeader, BSCTestnetHeader, GoerliHeader, SepoliaHeader } 
+  = require("./eth-object");
 
 module.exports = class GetProof{
-  constructor(rpcProvider = "https://mainnet.infura.io", chainId = null){
+  constructor(rpcProvider = "https://mainnet.infura.io", chainId = 1){
     this.rpc = new Rpc(rpcProvider)
     this.eth_getProof = this.rpc.eth_getProof
     this.chainId = chainId
@@ -20,12 +17,26 @@ module.exports = class GetProof{
     }
     rpcProof = await this.eth_getProof(address, [], rpcBlock.number)
 
-    let header = Header.fromRpc(rpcBlock);
-    if(this.chainId != null){
-      switch(this.chainId) {
-        case 1337:
-          break;
-      }
+    let header = "";
+    switch(this.chainId) {
+      case 1:
+        header = Header.fromRpc(rpcBlock);
+        break;
+      case 56:
+        header = BSCMainnetHeader.fromRpc(rpcBlock);
+        break;
+      case 97:
+        header = BSCTestnetHeader.fromRpc(rpcBlock);
+        break;
+      case 5:
+        header = GoerliHeader.fromRpc(rpcBlock);
+        break;
+      case 11155111:
+        header = SepoliaHeader.fromRpc(rpcBlock);
+        break;
+      default:
+        header = Header.fromRpc(rpcBlock);
+        break;
     }
 
     return {

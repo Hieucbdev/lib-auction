@@ -1,7 +1,7 @@
 const { decode, toBuffer, KECCAK256_RLP_ARRAY, KECCAK256_NULL } = require('eth-util-lite')
 const EthObject = require('./ethObject')
 
-class Header extends EthObject{
+class SepoliaHeader extends EthObject{
 
   static get fields(){ return [
     'parentHash',
@@ -20,7 +20,10 @@ class Header extends EthObject{
     'mixHash',
     'nonce',
     'baseFeePerGas',
-    "withdrawalsRoot"
+    'withdrawalsRoot',
+    'blobGasUsed',
+    'excessBlobGas',
+    'parentBeaconBlockRoot'
   ]}
 
   constructor(raw = this.NULL){
@@ -50,7 +53,10 @@ class Header extends EthObject{
         toBuffer(rpcResult.mixHash),
         toBuffer(rpcResult.nonce),
         toBuffer(rpcResult.baseFeePerGas),
-        toBuffer(rpcResult.withdrawalsRoot)
+        toBuffer(rpcResult.withdrawalsRoot),
+        toBuffer(rpcResult.blobGasUsed),
+        toBuffer(rpcResult.excessBlobGas),
+        toBuffer(rpcResult.parentBeaconBlockRoot)
       ])
     }else{
       return new this()
@@ -58,4 +64,4 @@ class Header extends EthObject{
   }
 }
 
-module.exports = Header
+module.exports = SepoliaHeader;

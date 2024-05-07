@@ -45,8 +45,8 @@ contract VickreyUtilitiesBase {
     list[14] = RLPEncode.encodeBytes(abi.encodePacked(header.nonce));
     list[15] = RLPEncode.encodeUint(header.baseFeePerGas);
     list[16] = RLPEncode.encodeBytes(abi.encodePacked(header.withdrawalsRoot));
-    list[17] = RLPEncode.encodeUint((header.blobGasUsed));
-    list[18] = RLPEncode.encodeUint((header.excessBlobGas));
+    list[17] = RLPEncode.encodeUint(header.blobGasUsed);
+    list[18] = RLPEncode.encodeUint(header.excessBlobGas);
     list[19] = RLPEncode.encodeBytes(abi.encodePacked(header.parentBeaconBlockRoot));
 
     data = RLPEncode.encodeList(list);
